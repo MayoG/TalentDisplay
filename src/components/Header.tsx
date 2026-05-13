@@ -1,9 +1,27 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { navLinks, siteName } from "../data";
+
+function scrollToSectionId(sectionId: string) {
+  document.getElementById(sectionId)?.scrollIntoView({
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    block: "start",
+  });
+  window.history.replaceState(null, "", `#${sectionId}`);
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
+
+  function handleMobileNavClick(e: MouseEvent<HTMLAnchorElement>, sectionId: string) {
+    e.preventDefault();
+    setOpen(false);
+    // Defer past close + layout so hash navigation is reliable on mobile (unmounting the link
+    // otherwise can cancel the default jump).
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => scrollToSectionId(sectionId));
+    });
+  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-stage-black/80 backdrop-blur-md">
@@ -60,7 +78,7 @@ export function Header() {
                   key={link.id}
                   href={`#${link.id}`}
                   className="rounded-md px-3 py-2 text-stage-cream-muted transition hover:bg-white/5 hover:text-stage-cream"
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleMobileNavClick(e, link.id)}
                 >
                   {link.label}
                 </a>
