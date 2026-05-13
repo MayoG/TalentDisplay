@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-stage-black font-sans text-stage-cream antialiased;
+  }
+
+  ::selection {
+    @apply bg-stage-burgundy/80 text-stage-cream;
+  }
+}
