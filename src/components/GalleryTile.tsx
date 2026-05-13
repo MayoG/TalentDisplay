@@ -2,12 +2,19 @@ import { motion } from "framer-motion";
 import type { GalleryImage } from "../data/types";
 import { fadeUp } from "../lib/motion";
 
-type GalleryTileProps = {
-  image: GalleryImage;
-  layoutClassName: string;
+const gridClassBySpan: Record<GalleryImage["span"], string> = {
+  wide: "sm:col-span-2 md:col-span-2 lg:col-span-2",
+  tall: "md:row-span-2",
+  normal: "",
 };
 
-export function GalleryTile({ image, layoutClassName }: GalleryTileProps) {
+type GalleryTileProps = {
+  image: GalleryImage;
+};
+
+export function GalleryTile({ image }: GalleryTileProps) {
+  const gridClass = gridClassBySpan[image.span];
+
   const aspectClass =
     image.span === "wide"
       ? "min-h-[200px] md:min-h-0 md:h-full"
@@ -16,16 +23,9 @@ export function GalleryTile({ image, layoutClassName }: GalleryTileProps) {
         : "aspect-[4/3] sm:aspect-[3/2] md:aspect-auto md:h-full";
 
   return (
-    <motion.figure
-      variants={fadeUp}
-      className={`group relative min-h-0 overflow-hidden rounded-sm border border-white/10 bg-stage-smoke ${layoutClassName}`}
-    >
+    <motion.figure variants={fadeUp} className={`group relative min-h-0 overflow-hidden rounded-sm border border-white/10 bg-stage-smoke ${gridClass}`}>
       <div className={`relative h-full min-h-[200px] w-full overflow-hidden md:min-h-0 ${aspectClass}`}>
-        <img
-          src={image.src}
-          alt={image.alt}
-          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
-        />
+        <img src={image.src} alt={image.alt} className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stage-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       </div>
     </motion.figure>

@@ -37,7 +37,8 @@ export interface GalleryImage {
   id: string;
   src: string;
   alt: string;
-  span?: "wide" | "tall" | "normal";
+  /** Grid footprint and mobile tile proportions */
+  span: "wide" | "tall" | "normal";
 }
 
 export interface Review {
