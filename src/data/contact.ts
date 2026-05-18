@@ -1,7 +1,7 @@
 import type { ContactContent } from "./types";
 
 export const contact: ContactContent = {
-  heading: "Let's make something worth the dark",
+  heading: "Let's make something worth the dark - Mayo is the best",
   email: "hello@hadarpnini.example",
   emailLabel: "Email",
   social: [

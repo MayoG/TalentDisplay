@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { Role } from "../data/types";
+import { assetPath } from "../lib/assets";
 import { fadeUp } from "../lib/motion";
 
 type RoleCardProps = {
@@ -14,7 +15,7 @@ export function RoleCard({ role }: RoleCardProps) {
     >
       <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] md:aspect-[21/9]">
         <img
-          src={role.image}
+          src={assetPath(role.image)}
           alt={role.imageAlt}
           className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
         />

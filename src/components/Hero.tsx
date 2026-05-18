@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { hero } from "../data";
+import { assetPath } from "../lib/assets";
 import { fade, fadeUp, staggerContainer, defaultViewport } from "../lib/motion";
 
 /** Split on last space so "Mary Jane Watson" → first + "Watson" style still works reasonably */
@@ -28,7 +29,7 @@ export function Hero() {
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <img
-            src={hero.backgroundImage}
+            src={assetPath(hero.backgroundImage)}
             alt={hero.backgroundAlt}
             className="h-full w-full scale-105 object-cover opacity-95 animate-slow-zoom"
           />
@@ -119,7 +120,7 @@ export function Hero() {
                   <div className="relative overflow-hidden rounded-sm shadow-[0_25px_60px_-12px_rgba(0,0,0,0.85)] ring-1 ring-stage-gold/35">
                     <div className="absolute inset-0 bg-gradient-to-t from-stage-black/50 via-transparent to-stage-gold/[0.07]" />
                     <img
-                      src={hero.portraitImage}
+                      src={assetPath(hero.portraitImage)}
                       alt={hero.portraitAlt ?? hero.title}
                       className="aspect-[3/4] w-full object-cover object-[center_15%] transition-transform duration-[1.6s] ease-out hover:scale-[1.03]"
                     />
