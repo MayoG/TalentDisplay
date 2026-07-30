@@ -43,12 +43,14 @@ export interface Role {
   accent?: string;
 }
 
+export type GallerySpan = "wide" | "tall" | "normal";
+
 export interface GalleryImage {
   id: string;
   src: string;
   alt: string;
-  /** Grid footprint and mobile tile proportions */
-  span: "wide" | "tall" | "normal";
+  /** Grid footprint and tile proportions */
+  span: GallerySpan;
 }
 
 export interface Review {

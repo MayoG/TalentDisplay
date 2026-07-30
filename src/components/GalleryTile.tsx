@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import type { GalleryImage } from "../data/types";
+import type { GalleryImage, GallerySpan } from "../data/types";
 import { assetPath } from "../lib/assets";
 import { fadeUp } from "../lib/motion";
 
-const gridClassBySpan: Record<GalleryImage["span"], string> = {
-  wide: "sm:col-span-2 md:col-span-2 lg:col-span-2",
+const gridClassBySpan: Record<GallerySpan, string> = {
+  wide: "sm:col-span-2 md:col-span-2",
   tall: "md:row-span-2",
   normal: "",
 };

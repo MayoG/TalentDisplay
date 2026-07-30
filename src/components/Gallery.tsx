@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { galleryImages } from "../data";
+import { galleryImagesDesktop, galleryImagesMobile } from "../data";
 import { Section } from "./Section";
 import { GalleryTile } from "./GalleryTile";
 import { fadeUp, staggerContainer, defaultViewport } from "../lib/motion";
@@ -18,9 +18,18 @@ export function Gallery() {
 
         <motion.div
           variants={staggerContainer}
-          className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:auto-rows-[220px] md:grid-cols-4 md:gap-5"
+          className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:hidden"
         >
-          {galleryImages.map((img) => (
+          {galleryImagesMobile.map((img) => (
+            <GalleryTile key={img.id} image={img} />
+          ))}
+        </motion.div>
+
+        <motion.div
+          variants={staggerContainer}
+          className="mt-14 hidden md:grid md:auto-rows-[220px] md:grid-cols-4 md:gap-5"
+        >
+          {galleryImagesDesktop.map((img) => (
             <GalleryTile key={img.id} image={img} />
           ))}
         </motion.div>
