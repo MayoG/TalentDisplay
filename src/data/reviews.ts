@@ -4,9 +4,9 @@ export const reviews: Review[] = [
   {
     id: "r1",
     quote:
-      "A performance of fierce intelligence—Pnini holds the room without raising her voice, until the moment she must, and then the floor seems to tilt.",
-    attribution: "— J. Whitmore",
-    source: "The City Arts Review",
+      "Her Nina is all hunger and light—youthful, raw, and devastating when the dream turns. Pnini makes Chekhov feel dangerously present.",
+    attribution: "— Review placeholder",
+    source: "The Seagull, 2026",
   },
   {
     id: "r2",

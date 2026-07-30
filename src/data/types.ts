@@ -22,14 +22,24 @@ export interface AboutContent {
   paragraphs: string[];
 }
 
+export interface RolePhoto {
+  src: string;
+  alt: string;
+}
+
 export interface Role {
   id: string;
   title: string;
   character: string;
-  venue: string;
+  /** Theater / company; omit when unknown */
+  venue?: string;
   year: string;
   image: string;
   imageAlt: string;
+  /** CSS object-position when the crop needs a focal point (e.g. "center top") */
+  imagePosition?: string;
+  /** Production stills shown when the role card is opened */
+  photos?: RolePhoto[];
   accent?: string;
 }
 

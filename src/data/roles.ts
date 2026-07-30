@@ -1,6 +1,18 @@
 import type { Role } from "./types";
+import { seagullCover, seagullPhotos } from "./seagull";
 
 export const roles: Role[] = [
+  {
+    id: "seagull-2026",
+    title: "The Seagull",
+    character: "Nina Mikhailovna Zarechnaya",
+    venue: "Tel Aviv University Theatre",
+    year: "2026",
+    image: seagullCover.src,
+    imageAlt: seagullCover.alt,
+    imagePosition: "center top",
+    photos: seagullPhotos,
+  },
   {
     id: "1",
     title: "Hedda Gabler",
