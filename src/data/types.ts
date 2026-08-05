@@ -38,6 +38,10 @@ export interface Role {
   imageAlt: string;
   /** CSS object-position when the crop needs a focal point (e.g. "center top") */
   imagePosition?: string;
+  /** Mirror the cover image horizontally */
+  imageFlipHorizontal?: boolean;
+  /** Cover zoom factor — 1 is default, 1.15 is a mild zoom-in */
+  imageZoom?: number;
   /** Production stills shown when the role card is opened */
   photos?: RolePhoto[];
   accent?: string;
@@ -51,6 +55,10 @@ export interface GalleryImage {
   alt: string;
   /** Grid footprint and tile proportions */
   span: GallerySpan;
+  /** Focal point for crop and zoom (CSS object-position / transform-origin, e.g. "center 30%") */
+  imagePosition?: string;
+  /** Tile zoom factor — 1 is default; zooms toward imagePosition */
+  imageZoom?: number;
 }
 
 export interface Review {

@@ -11,15 +11,24 @@ type RoleCardProps = {
 export function RoleCard({ role, onOpen }: RoleCardProps) {
   const hasPhotos = Boolean(role.photos && role.photos.length > 0);
   const interactive = hasPhotos && onOpen;
+  const zoom = role.imageZoom ?? 1;
+  const coverTransform = [
+    role.imageFlipHorizontal ? "scaleX(-1)" : null,
+    zoom !== 1 ? `scale(${zoom})` : null,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   const content = (
     <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] md:aspect-[21/9]">
-      <img
-        src={assetPath(role.image)}
-        alt={role.imageAlt}
-        className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
-        style={role.imagePosition ? { objectPosition: role.imagePosition } : undefined}
-      />
+      <div className="h-full w-full" style={coverTransform ? { transform: coverTransform } : undefined}>
+        <img
+          src={assetPath(role.image)}
+          alt={role.imageAlt}
+          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+          style={role.imagePosition ? { objectPosition: role.imagePosition } : undefined}
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-stage-black via-stage-black/40 to-transparent opacity-90 md:opacity-100" />
       <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 md:p-10">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-stage-gold-muted">{role.year}</p>
