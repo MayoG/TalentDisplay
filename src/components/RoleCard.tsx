@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 import type { Role } from "../data/types";
 import { assetPath } from "../lib/assets";
 import { fadeUp } from "../lib/motion";
@@ -19,14 +20,35 @@ export function RoleCard({ role, onOpen }: RoleCardProps) {
     .filter(Boolean)
     .join(" ");
 
+  const positionMobile = role.imagePositionMobile ?? role.imagePosition;
+  const positionDesktop = role.imagePosition ?? role.imagePositionMobile;
+  const coverPosStyle =
+    positionMobile || positionDesktop
+      ? ({
+          objectPosition: positionMobile ?? positionDesktop,
+          ["--cover-pos-sm"]: positionDesktop ?? positionMobile,
+        } as CSSProperties)
+      : undefined;
+
   const content = (
     <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] md:aspect-[21/9]">
-      <div className="h-full w-full" style={coverTransform ? { transform: coverTransform } : undefined}>
+      <div
+        className="h-full w-full sm:[transform-origin:var(--cover-origin-sm)]"
+        style={
+          coverTransform || positionMobile
+            ? ({
+                ...(coverTransform ? { transform: coverTransform } : {}),
+                transformOrigin: positionMobile ?? "center center",
+                ["--cover-origin-sm"]: positionDesktop ?? positionMobile ?? "center center",
+              } as CSSProperties)
+            : undefined
+        }
+      >
         <img
           src={assetPath(role.image)}
           alt={role.imageAlt}
-          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
-          style={role.imagePosition ? { objectPosition: role.imagePosition } : undefined}
+          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105 sm:[object-position:var(--cover-pos-sm)]"
+          style={coverPosStyle}
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-stage-black via-stage-black/40 to-transparent opacity-90 md:opacity-100" />

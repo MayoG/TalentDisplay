@@ -36,8 +36,10 @@ export interface Role {
   year: string;
   image: string;
   imageAlt: string;
-  /** CSS object-position when the crop needs a focal point (e.g. "center top") */
+  /** CSS object-position for sm+ (e.g. "center top", "right 10%") */
   imagePosition?: string;
+  /** object-position below sm; falls back to imagePosition */
+  imagePositionMobile?: string;
   /** Mirror the cover image horizontally */
   imageFlipHorizontal?: boolean;
   /** Cover zoom factor — 1 is default, 1.15 is a mild zoom-in */
