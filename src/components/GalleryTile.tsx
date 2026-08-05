@@ -39,6 +39,8 @@ export function GalleryTile({ image }: GalleryTileProps) {
           <img
             src={assetPath(image.src)}
             alt={image.alt}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
             style={image.imagePosition ? { objectPosition: image.imagePosition } : undefined}
           />

@@ -3,7 +3,7 @@ import { loadPlayPhotos } from "./loadPlayPhotos";
 const ALT = "Hadar Pnini in Baby with the Bathwater, 2025 — Tel Aviv University Theatre";
 
 /** Drop new stills in `src/assets/Baby with the Bathwater 2025/` — picked up at build time. */
-const modules = import.meta.glob<string>("../assets/Baby with the Bathwater 2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", {
+const modules = import.meta.glob<string>("../assets/Baby with the Bathwater 2025/*.webp", {
   eager: true,
   query: "?url",
   import: "default",

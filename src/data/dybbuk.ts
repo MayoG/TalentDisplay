@@ -3,7 +3,7 @@ import { loadPlayPhotos } from "./loadPlayPhotos";
 const ALT = "Hadar Pnini in The Dybbuk, 2026 — photo by Tami Shaham";
 
 /** Drop new stills in `src/assets/The Dybbuk 2026/` — picked up at build time. */
-const modules = import.meta.glob<string>("../assets/The Dybbuk 2026/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", {
+const modules = import.meta.glob<string>("../assets/The Dybbuk 2026/*.webp", {
   eager: true,
   query: "?url",
   import: "default",

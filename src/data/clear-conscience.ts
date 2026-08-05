@@ -3,7 +3,7 @@ import { loadPlayPhotos } from "./loadPlayPhotos";
 const ALT = "Hadar Pnini in In Clear Conscience, 2025 — photo by Tami Shaham";
 
 /** Drop new stills in `src/assets/In clear conscience 2025/` — picked up at build time. */
-const modules = import.meta.glob<string>("../assets/In clear conscience 2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", {
+const modules = import.meta.glob<string>("../assets/In clear conscience 2025/*.webp", {
   eager: true,
   query: "?url",
   import: "default",

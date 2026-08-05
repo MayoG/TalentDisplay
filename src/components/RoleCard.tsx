@@ -47,6 +47,8 @@ export function RoleCard({ role, onOpen }: RoleCardProps) {
         <img
           src={assetPath(role.image)}
           alt={role.imageAlt}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105 sm:[object-position:var(--cover-pos-sm)]"
           style={coverPosStyle}
         />

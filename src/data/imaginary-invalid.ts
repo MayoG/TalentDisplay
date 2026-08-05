@@ -3,7 +3,7 @@ import { loadPlayPhotos } from "./loadPlayPhotos";
 const ALT = "Hadar Pnini in The Imaginary Invalid, 2024 — Tel Aviv University Theatre";
 
 /** Drop new stills in `src/assets/The Imaginary Invalid 2024/` — picked up at build time. */
-const modules = import.meta.glob<string>("../assets/The Imaginary Invalid 2024/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", {
+const modules = import.meta.glob<string>("../assets/The Imaginary Invalid 2024/*.webp", {
   eager: true,
   query: "?url",
   import: "default",

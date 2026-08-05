@@ -104,6 +104,8 @@ export function RoleGallery({ role, activeIndex, onClose, onIndexChange }: RoleG
                 key={photo.src}
                 src={assetPath(photo.src)}
                 alt={photo.alt}
+                decoding="async"
+                fetchPriority="high"
                 className="max-h-full max-w-full object-contain shadow-2xl shadow-black/60"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -158,6 +160,8 @@ export function RoleGallery({ role, activeIndex, onClose, onIndexChange }: RoleG
                       <img
                         src={assetPath(item.src)}
                         alt=""
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover"
                       />
                     </button>

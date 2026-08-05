@@ -31,6 +31,8 @@ export function Hero() {
           <img
             src={assetPath(hero.backgroundImage)}
             alt={hero.backgroundAlt}
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full scale-105 object-cover opacity-95 animate-slow-zoom"
           />
         </motion.div>
@@ -122,6 +124,8 @@ export function Hero() {
                     <img
                       src={assetPath(hero.portraitImage)}
                       alt={hero.portraitAlt ?? hero.title}
+                      fetchPriority="high"
+                      decoding="async"
                       className="aspect-[3/4] w-full object-cover object-[center_15%] transition-transform duration-[1.6s] ease-out hover:scale-[1.03]"
                     />
                   </div>

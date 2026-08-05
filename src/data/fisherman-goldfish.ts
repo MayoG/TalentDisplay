@@ -3,7 +3,7 @@ import { loadPlayPhotos } from "./loadPlayPhotos";
 const ALT = "Hadar Pnini in Fisherman and Goldfish, 2023 — Tel Aviv University Theatre";
 
 /** Drop new stills in `src/assets/Fisherman and goldfish 2023/` — picked up at build time. */
-const modules = import.meta.glob<string>("../assets/Fisherman and goldfish 2023/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", {
+const modules = import.meta.glob<string>("../assets/Fisherman and goldfish 2023/*.webp", {
   eager: true,
   query: "?url",
   import: "default",

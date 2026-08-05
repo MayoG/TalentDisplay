@@ -4,6 +4,10 @@ export function fileName(path: string): string {
   return path.split("/").pop() ?? path;
 }
 
+function fileStem(path: string): string {
+  return fileName(path).replace(/\.[^.]+$/, "");
+}
+
 export function loadPlayPhotos(modules: Record<string, string>, alt: string, coverFile?: string) {
   const photos: RolePhoto[] = Object.entries(modules)
     .sort(([a], [b]) => fileName(a).localeCompare(fileName(b), undefined, { numeric: true }))
@@ -12,7 +16,7 @@ export function loadPlayPhotos(modules: Record<string, string>, alt: string, cov
       alt,
     }));
 
-  const coverEntry = coverFile ? Object.entries(modules).find(([path]) => fileName(path) === coverFile) : undefined;
+  const coverEntry = coverFile ? Object.entries(modules).find(([path]) => fileStem(path) === fileStem(coverFile)) : undefined;
 
   const cover = {
     src: coverEntry?.[1] ?? photos[0]?.src ?? "",
@@ -20,7 +24,7 @@ export function loadPlayPhotos(modules: Record<string, string>, alt: string, cov
   };
 
   function photoByFile(name: string): RolePhoto | undefined {
-    const entry = Object.entries(modules).find(([path]) => fileName(path) === name);
+    const entry = Object.entries(modules).find(([path]) => fileStem(path) === fileStem(name));
     if (!entry) return undefined;
     return { src: entry[1], alt };
   }
