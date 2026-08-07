@@ -2,6 +2,6 @@ export { siteName, navLinks, hero, defaultPhotographer, photoCredits } from "./s
 export { about } from "./about";
 export { roles } from "./roles";
 export { galleryImagesDesktop, galleryImagesMobile } from "./gallery";
-export { reviews } from "./reviews";
+export { cv } from "./cv";
 export { contact } from "./contact";
 export type * from "./types";

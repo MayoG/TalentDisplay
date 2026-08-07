@@ -3,7 +3,7 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { FeaturedRoles } from "./components/FeaturedRoles";
 import { Gallery } from "./components/Gallery";
-import { Reviews } from "./components/Reviews";
+import { CV } from "./components/CV";
 import { Contact } from "./components/Contact";
 import { photoCredits, siteName } from "./data";
 
@@ -45,7 +45,7 @@ export default function App() {
         <About />
         <FeaturedRoles />
         <Gallery />
-        <Reviews />
+        <CV />
         <Contact />
       </main>
       <Footer />

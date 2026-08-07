@@ -64,7 +64,7 @@ Build a single-page website with these sections:
 2. About
 3. Featured Roles
 4. Gallery
-5. Reviews / Press
+5. CV / Resume
 6. Contact
 
 ## UX Rules
@@ -96,6 +96,6 @@ Use placeholder content for now, but make it easy to replace:
 - role names
 - theater names
 - years
-- review quotes
+- CV / resume PDF
 - contact details
 - images

@@ -65,11 +65,15 @@ export interface GalleryImage {
   imageZoom?: number;
 }
 
-export interface Review {
-  id: string;
-  quote: string;
-  attribution: string;
-  source: string;
+export interface CvContent {
+  eyebrow: string;
+  heading: string;
+  description: string;
+  /** Path under `public/` (e.g. `/cv/hadar-pnini-cv.pdf`) */
+  fileHref: string;
+  fileLabel: string;
+  downloadLabel: string;
+  openLabel: string;
 }
 
 export interface SocialLink {
