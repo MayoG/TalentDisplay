@@ -33,6 +33,8 @@ export interface Role {
   character: string;
   /** Theater / company; omit when unknown */
   venue?: string;
+  /** Production director; omit when unknown */
+  director?: string;
   year: string;
   image: string;
   imageAlt: string;

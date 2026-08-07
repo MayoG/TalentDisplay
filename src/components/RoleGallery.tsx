@@ -63,6 +63,11 @@ export function RoleGallery({ role, activeIndex, onClose, onIndexChange }: RoleG
               <p className="font-sans text-xs uppercase tracking-[0.25em] text-stage-gold-muted">{role.year}</p>
               <h2 className="mt-1 font-serif text-2xl text-stage-cream sm:text-3xl">{role.title}</h2>
               <p className="mt-1 font-sans text-sm text-stage-cream-muted sm:text-base">{role.character}</p>
+              {role.director ? (
+                <p className="mt-1 font-sans text-xs text-stage-cream-muted/90 sm:text-sm">
+                  Directed by {role.director}
+                </p>
+              ) : null}
             </div>
             <button
               type="button"
