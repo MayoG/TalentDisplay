@@ -2,6 +2,17 @@ import type { NavLink, HeroContent } from "./types";
 
 export const siteName = "Hadar Pnini";
 
+/** Default photographer for production stills across the site */
+export const defaultPhotographer = "Tami Shaham";
+
+export const photoCredits = {
+  default: defaultPhotographer,
+  /** Roles with a different photographer than the site default */
+  exceptions: [
+    { play: "Fisherman and Goldfish", photographer: "Guy Mayo" },
+  ],
+} as const;
+
 export const navLinks: NavLink[] = [
   { id: "about", label: "About" },
   { id: "roles", label: "Roles" },

@@ -5,14 +5,27 @@ import { FeaturedRoles } from "./components/FeaturedRoles";
 import { Gallery } from "./components/Gallery";
 import { Reviews } from "./components/Reviews";
 import { Contact } from "./components/Contact";
-import { siteName } from "./data";
+import { photoCredits, siteName } from "./data";
 
 function Footer() {
   return (
     <footer className="border-t border-white/5 bg-stage-black py-10 text-center">
-      <p className="font-sans text-xs text-stage-cream-muted">
-        © {new Date().getFullYear()} {siteName}. Crafted for the theater.
-      </p>
+      <div className="mx-auto max-w-md px-6">
+        <p className="font-sans text-xs tracking-[0.12em] text-stage-cream-muted">
+          Photography by {photoCredits.default}
+        </p>
+        {photoCredits.exceptions.map((credit) => (
+          <p
+            key={credit.play}
+            className="mt-2 font-sans text-[11px] leading-relaxed text-stage-cream-muted/70"
+          >
+            {credit.play} — {credit.photographer}
+          </p>
+        ))}
+        <p className="mt-5 font-sans text-xs text-stage-cream-muted/50">
+          © {new Date().getFullYear()} {siteName}
+        </p>
+      </div>
     </footer>
   );
 }

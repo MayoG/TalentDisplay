@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { defaultPhotographer } from "../data";
 import type { Role } from "../data/types";
 import { assetPath } from "../lib/assets";
 
@@ -117,9 +118,14 @@ export function RoleGallery({ role, activeIndex, onClose, onIndexChange }: RoleG
 
           <div className="px-5 py-5 sm:px-8">
             <div className="mb-4 flex items-center justify-between gap-4 sm:mb-5">
-              <p className="font-sans text-xs tracking-[0.15em] text-stage-cream-muted">
-                {activeIndex + 1} / {count}
-              </p>
+              <div>
+                <p className="font-sans text-xs tracking-[0.15em] text-stage-cream-muted">
+                  {activeIndex + 1} / {count}
+                </p>
+                <p className="mt-1.5 font-sans text-[11px] tracking-[0.08em] text-stage-cream-muted/65">
+                  Photo by {role.photographer ?? defaultPhotographer}
+                </p>
+              </div>
               {count > 1 ? (
                 <div className="flex gap-4 sm:hidden">
                   <button

@@ -1,4 +1,4 @@
-export { siteName, navLinks, hero } from "./site";
+export { siteName, navLinks, hero, defaultPhotographer, photoCredits } from "./site";
 export { about } from "./about";
 export { roles } from "./roles";
 export { galleryImagesDesktop, galleryImagesMobile } from "./gallery";

@@ -46,7 +46,7 @@ export const roles: Role[] = [
   },
   {
     id: "clear-conscience-2025",
-    title: "In Clear Conscience",
+    title: "Beyond Caring",
     character: "Hadar Pnini",
     venue: VENUE,
     year: "2025",
@@ -78,9 +78,10 @@ export const roles: Role[] = [
     year: "2023",
     image: fishermanGoldfishCover.src,
     imageAlt: fishermanGoldfishCover.alt,
-    imagePosition: "left 70%",
-    imagePositionMobile: "55% 100%",
+    imagePosition: "left 60%",
+    imagePositionMobile: "55%",
     imageZoom: 1.05,
     photos: fishermanGoldfishPhotos,
+    photographer: "Guy Mayo",
   },
 ];
