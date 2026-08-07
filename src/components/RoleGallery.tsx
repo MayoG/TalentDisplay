@@ -132,9 +132,11 @@ export function RoleGallery({ role, activeIndex, onClose, onIndexChange }: RoleG
                 <p className="font-sans text-xs tracking-[0.15em] text-stage-cream-muted">
                   {activeIndex + 1} / {count}
                 </p>
-                <p className="mt-1.5 font-sans text-[11px] tracking-[0.08em] text-stage-cream-muted/65">
-                  Photo by {role.photographer ?? defaultPhotographer}
-                </p>
+                {role.photographer !== null ? (
+                  <p className="mt-1.5 font-sans text-[11px] tracking-[0.08em] text-stage-cream-muted/65">
+                    Photo by {role.photographer ?? defaultPhotographer}
+                  </p>
+                ) : null}
               </div>
               {count > 1 ? (
                 <div className="flex gap-4 sm:hidden">

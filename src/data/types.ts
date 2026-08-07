@@ -57,8 +57,11 @@ export interface Role {
   imageZoom?: number;
   /** Production stills shown when the role card is opened */
   photos?: RolePhoto[];
-  /** Photographer credit for this role's stills; falls back to site default */
-  photographer?: string;
+  /**
+   * Photographer credit for this role's stills.
+   * Omit / undefined → site default; string → that name; null → no credit shown.
+   */
+  photographer?: string | null;
   accent?: string;
 }
 
