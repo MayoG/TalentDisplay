@@ -94,6 +94,6 @@ export const roles: Role[] = [
     imagePositionMobile: "55%",
     imageZoom: 1.05,
     photos: fishermanGoldfishPhotos,
-    photographer: "Guy Mayo",
+    photographer: undefined,
   },
 ];

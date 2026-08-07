@@ -8,8 +8,15 @@ export interface HeroContent {
   subtitle: string;
   /** Small caps line above the name; omit when the name alone is enough */
   eyebrow?: string;
-  backgroundImage: string;
+  /** Single full-bleed background (used when `backgroundImages` is empty) */
+  backgroundImage?: string;
+  /** Rotating full-bleed backgrounds; when set, one image shows at a time */
+  backgroundImages?: { src: string; alt: string }[];
   backgroundAlt: string;
+  /** Seconds each background image stays visible before crossfading */
+  backgroundIntervalSeconds?: number;
+  /** Rotating portraits in the hero frame; when set, one image shows at a time */
+  portraitImages?: { src: string; alt: string }[];
   /** Optional headshot shown beside the name; place files under `public/images/`. */
   portraitImage?: string;
   portraitAlt?: string;
@@ -46,7 +53,7 @@ export interface Role {
   imagePositionMobile?: string;
   /** Mirror the cover image horizontally */
   imageFlipHorizontal?: boolean;
-  /** Cover zoom factor — 1 is default, 1.15 is a mild zoom-in */
+  /** Cover zoom factor ג€” 1 is default, 1.15 is a mild zoom-in */
   imageZoom?: number;
   /** Production stills shown when the role card is opened */
   photos?: RolePhoto[];
@@ -65,7 +72,7 @@ export interface GalleryImage {
   span: GallerySpan;
   /** Focal point for crop and zoom (CSS object-position / transform-origin, e.g. "center 30%") */
   imagePosition?: string;
-  /** Tile zoom factor — 1 is default; zooms toward imagePosition */
+  /** Tile zoom factor ג€” 1 is default; zooms toward imagePosition */
   imageZoom?: number;
 }
 

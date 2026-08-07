@@ -1,4 +1,5 @@
 import type { NavLink, HeroContent } from "./types";
+import { photoBookPhotos } from "./photo-book";
 
 export const siteName = "Hadar Pnini";
 
@@ -8,9 +9,7 @@ export const defaultPhotographer = "Tami Shaham";
 export const photoCredits = {
   default: defaultPhotographer,
   /** Roles with a different photographer than the site default */
-  exceptions: [
-    { play: "Fisherman and Goldfish", photographer: "Guy Mayo" },
-  ],
+  exceptions: [{ play: "Book photos", photographer: "Ilan Zacharov" }],
 } as const;
 
 export const navLinks: NavLink[] = [
@@ -25,9 +24,10 @@ export const hero: HeroContent = {
   title: "Hadar Pnini",
   subtitle: "Theater · Voice · Presence",
   backgroundImage: "/images/hero-bg.svg",
-  backgroundAlt: "Cinematic stage light placeholder",
-  portraitImage: "/images/hero-portrait.png",
+  backgroundAlt: "Cinematic stage light",
+  portraitImages: photoBookPhotos,
   portraitAlt: "Hadar Pnini",
+  backgroundIntervalSeconds: 5,
   primaryCta: { label: "View roles", href: "#roles" },
   secondaryCta: { label: "Get in touch", href: "#contact" },
 };
