@@ -31,6 +31,8 @@ export interface Role {
   id: string;
   title: string;
   character: string;
+  /** Playwright / author of the play; omit when unknown */
+  playwright?: string;
   /** Theater / company; omit when unknown */
   venue?: string;
   /** Production director; omit when unknown */

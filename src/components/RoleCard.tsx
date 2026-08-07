@@ -58,13 +58,22 @@ export function RoleCard({ role, onOpen }: RoleCardProps) {
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-stage-gold-muted">{role.year}</p>
         <h3 className="mt-2 font-serif text-2xl text-stage-cream sm:text-3xl md:text-4xl">{role.title}</h3>
         <p className="mt-1 font-sans text-lg text-stage-cream-muted sm:text-xl">{role.character}</p>
-        {role.director ? (
+        {role.playwright ? (
           <p className="mt-2 font-sans text-sm text-stage-cream-muted/90">
+            by {role.playwright}
+          </p>
+        ) : null}
+        {role.director ? (
+          <p className={`font-sans text-sm text-stage-cream-muted/90 ${role.playwright ? "mt-1" : "mt-2"}`}>
             Directed by {role.director}
           </p>
         ) : null}
         {role.venue ? (
-          <p className={`font-sans text-sm text-stage-cream-muted/90 ${role.director ? "mt-1" : "mt-3"}`}>
+          <p
+            className={`font-sans text-sm text-stage-cream-muted/90 ${
+              role.playwright || role.director ? "mt-1" : "mt-3"
+            }`}
+          >
             {role.venue}
           </p>
         ) : null}
