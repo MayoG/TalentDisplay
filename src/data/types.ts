@@ -85,6 +85,8 @@ export interface CvContent {
   description: string;
   /** Path under `public/` (e.g. `/cv/hadar-pnini-cv.pdf`) */
   fileHref: string;
+  /** Still preview of the CV (path under `public/`) */
+  previewImage: string;
   fileLabel: string;
   downloadLabel: string;
   openLabel: string;

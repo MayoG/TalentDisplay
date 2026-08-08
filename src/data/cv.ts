@@ -5,6 +5,7 @@ export const cv: CvContent = {
   heading: "Resume",
   description: "Download or view Hadar Pnini’s full CV.",
   fileHref: "/cv/hadar-pnini-cv.pdf",
+  previewImage: "/cv/hadar-pnini-cv-preview.webp",
   fileLabel: "Hadar Pnini — CV",
   downloadLabel: "Download CV",
   openLabel: "Open in new tab",

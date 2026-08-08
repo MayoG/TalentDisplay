@@ -1,7 +1,12 @@
 /** Prefix public asset paths with Vite `base` (e.g. `/TalentDisplay/` on GitHub Pages). */
 export function assetPath(path: string): string {
   // Vite-imported assets (`import.meta.glob` / `?url`) are already resolved.
-  if (!path.startsWith("/images/") && !path.startsWith("images/")) {
+  const isPublicAsset =
+    path.startsWith("/images/") ||
+    path.startsWith("images/") ||
+    path.startsWith("/cv/") ||
+    path.startsWith("cv/");
+  if (!isPublicAsset) {
     return path;
   }
   const normalized = path.startsWith("/") ? path.slice(1) : path;
