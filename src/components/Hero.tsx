@@ -23,10 +23,14 @@ function getSlides(): Slide[] {
   return [];
 }
 
+/** Match Vite hashed URLs too (`DSC00115-abc123.webp`), not only the source filename. */
+function isOpeningSlide(src: string): boolean {
+  return /(?:^|\/)DSC00115(?:[-.]|$)/.test(src);
+}
+
 function shuffleSlides(slides: Slide[]): Slide[] {
-  const FIRST = "DSC00115.webp";
-  const first = slides.find((slide) => slide.src.includes(FIRST));
-  const rest = slides.filter((slide) => !slide.src.includes(FIRST));
+  const first = slides.find((slide) => isOpeningSlide(slide.src));
+  const rest = slides.filter((slide) => !isOpeningSlide(slide.src));
 
   for (let i = rest.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
